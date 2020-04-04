@@ -1,0 +1,49 @@
+#+TITLE:Emacs Config
+
+This is my emacs configuration files.
+
+* Setup
+
+Configure directories and add the following to the init file (e.g, `.emacs`):
+
+#+BEGIN_SRC elisp
+(let ((default-directory "##this-repository-directory##"))
+  (add-to-list 'load-path default-directory)
+  (normal-top-level-add-subdirs-to-load-path)
+  (add-to-list 'load-path default-directory)
+  )
+(require 'emacs-init)
+#+END_SRC
+
+* Configuring directories
+
+There are some configurations that require directory locations for various purposes, and some features may not work without them, like org-mode capture and deft:
+
+#+BEGIN_SRC elisp
+;; info files
+(add-to-list 'Info-default-directory-list "~/.emacs.d/info")
+
+;; For Magit, etc
+(setq usr-git-repositories-directory "##GIT_REPOSITORIES")
+
+;; Projectile Project Paths
+(setq projectile-project-search-path '("##PROJECILE_DIR"))
+
+;; Dropbox - Mainly for notes and org-mode
+(setq usr-dropbox-directory       "##DROPBOX_DIRECTORIES")
+(setq usr-notes-directory         usr-dropbox-directory) ;for org files, etc.
+
+;; Deft
+(setq deft-directory              "##DEFT_DIRECTORIES")
+(setq usr-deft-directory          deft-directory)
+
+;; Org-Mode
+(setq org-directory               "##ORG_DIRECTORIES")
+(setq usr-org-capture-directory   org-directory) ; for org-captures
+(setq org-agenda-files org-directory) ; for org-agenda
+
+;; Notes
+(let ((default-directory usr-notes-directory))
+  (setq diary-file (expand-file-name "diary"))
+  (setq markdown-memo-file (expand-file-name "Memo/%s.md.txt")))
+#+END_SRC
