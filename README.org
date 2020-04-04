@@ -4,7 +4,11 @@ This is my emacs configuration files.
 
 * Setup
 
+<<<<<<< HEAD
 Configure directories and add the following to the init file (e.g, =.emacs=):
+=======
+Configure directories and add the following to the init file (e.g, `.emacs`):
+>>>>>>> 20c4cacfb436dba58ce37505546cadeee99e93b4
 
 #+BEGIN_SRC elisp
 (let ((default-directory "##this-repository-directory##"))
