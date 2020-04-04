@@ -1,0 +1,6 @@
+[submodule "/mnt/d/Projects/emacs-init/"]
+	path = lisp/powerline
+	url = https://github.com/milkypostman/powerline.git
+[submodule "lisp/org-notebook-mode"]
+	path = lisp/org-notebook-mode
+	url = https://github.com/liamst19/org-notebook-mode.git

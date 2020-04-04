@@ -1,4 +1,7 @@
-
+;;; init-packages.el -- packages loader
+;;; Commentary:
+;;; Packages are saved into directories created
+;;; inside ~/.emacs.d/
 
 ;; ------------------------------------------------------------
 ;; ------------------------------------------------------------
@@ -26,11 +29,12 @@
 (setq package-archives
       '(("melpa"     . "https://melpa.org/packages/")
         ("gnu"       . "https://elpa.gnu.org/packages/")
-;;        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
         ("org"       . "http://orgmode.org/elpa/")))
+
 (package-initialize) ;; obsolete from emacs 27
 
-(setq url-http-attempt-keepalives nil)
+;; (setq url-http-attempt-keepalives nil)
 
 ;; use-package
 (unless (package-installed-p 'use-package)
@@ -103,3 +107,7 @@
 (require 'init-auctex) ; for latex
 
 ;;------------------------------------------------------------
+
+(provide 'init-packages)
+
+;;; init-packages.el ENDS HERE

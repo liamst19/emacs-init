@@ -1,9 +1,51 @@
+;;; emacs-settings.el -- basic, package-less UI settings
+;;; Commentary:
+;;;
+
 ;; ------------------------------------------------------------
 ;; UI settings
 ;; ------------------------------------------------------------
 
-(setq frame-title-format "emacs - %b")
+(setq frame-title-format "%b --- emacs")  ; title bar
+;; (setq inhibit-startup-screen t)           ; disable splash screen
 
+;; Turn off the annoying 'ding!' sound
+;; (if (string-equal system-type "gnu/linux") ; necessary?
+(setq visible-bell t)
+;;)
+
+;; Scratch
+;; (setq initial-scratch-message nil)   ; remove message from scratch
+;; (setq initial-major-mode 'text-mode) ; set it to text-mode
+
+(setq-default make-backup-files nil)
+(setq auto-save-default nil)
+;;(setq delete-auto-save-files t)
+
+;; Do not open file or user dialog
+(setq use-file-dialog nil)
+(setq use-dialog-box nil)
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+;; line-wrap for text-mode
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+(setq c-basic-indent 2)
+(setq tab-width 2)
+;; (highlight-tabs)
+;; (highlight-trailing-whitespace)
+
+;; get curved quotes as you type
+;; (electric-quote-mode)
+
+;; Spell-check program
+(setq ispell-program-name "aspell")
+
+;; ------------------------------------------------------------
 ;; emacsclient (--daemon) does not seem to reproduce the initial
 ;; window settings like toolbar and window sizes. This is a
 ;; workaround.
@@ -18,59 +60,38 @@
   (when frame
     (with-selected-frame frame
       (when (display-graphic-p)
+	;; ---------------------------------------------------
+	;; Frame Configurations ------------------------------
+
 	(set-frame-size (selected-frame) 80 35)
 	(set-frame-position (selected-frame) 25 50)
 	;; (set-frame-width (selected-frame) 80)
-	;; (set-frame-height (selected-frame) 35) 
+	;; (set-frame-height (selected-frame) 35)
 	(tool-bar-mode -1)
 	(menu-bar-mode -1)
 	(toggle-scroll-bar -1)
+
+	(global-linum-mode t)
+	(line-number-mode t)
+	(column-number-mode t)
+
+	(blink-cursor-mode 0)
+	(global-hl-line-mode t)
+	(show-paren-mode t)
+	;; Mouse Scrolling Behaviour
+	(setq scroll-step 1)
+	(setq scroll-conservatively 10000)
+
+	;; ---------------------------------------------------
+	;; ---------------------------------------------------
 	))))
 
+;; Call on load
 (my-frame-tweaks)
+
+;; Hook to be called for emacsclient frames
 (add-hook 'after-make-frame-functions #'my-frame-tweaks t)
 
 ;; ------------------------------------------------------------
-;; Turn off the annoying beeping sound
-(cond
- ((string-equal system-type "windows-nt") ; Windows
-  (progn
-    (set-message-beep 'silent)))
- ((string-equal system-type "gnu/linux") ; Linux
-  (progn
-    (setq visible-bell t))))
 ;; ------------------------------------------------------------
-;;  [Font]
-;; ------------------------------------------------------------
-
-;; Default Font
-;;(set-default-font "Consolas-12")
-(setq default-frame-alist '((font . "Consolas-12")))
-(setq-default line-spacing 5)
-
-;; Font Set
-;; Fix for emacs hanging while trying to display Japanese
-;; (and presumably other foreign characters) on Windows system
-;; (when (eq system-type 'nt)
-  (setq inhibit-compacting-font-caches t)
-;;
-;; 日本語フォント設定
-;; (set-fontset-font (frame-parameter nil 'font)
-;;                   'japanese-jisx0208
-;;                  (font-spec :family "Noto Sans Mono-10"))
-(set-locale-environment nil)
-(set-language-environment "Japanese")
-
-;; ;; "Greek extended"  U+1F00 - U+1FFF
-;; (set-fontset-font "fontset-standard"
-;;                (cons (decode-char 'ucs #x1f00)
-;;                      (decode-char 'ucs #x1fff))
-;;                (font-spec :family "Consolas"))
-
-;; ; "-*-Consolas-*-*-r-*-14-*-*-*-*-*-iso10646-1")
-
-;; ;; "Greek and Coptic"  U+0370 - U+03FF
-;; (set-fontset-font "fontset-standard"
-;;                (cons (decode-char 'ucs #x0370)
-;;                      (decode-char 'ucs #x03ff))
-;;                (font-spec :family "Consolas"))
+(provide 'emacs-settings)
