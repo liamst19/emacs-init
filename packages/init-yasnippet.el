@@ -10,8 +10,6 @@
 ;; TextMate templates to YASnippet. Watch a demo on YouTube.
 ;; ------------------------------------------------------------
 
-
-;; Snippets.
 (use-package yasnippet
   :ensure t
   :defer 4
@@ -19,7 +17,7 @@
   :config
   (progn
     (global-unset-key (kbd "s-e"))
-    (setq-default yas-snippet-dirs '("~/.emacs.d/snippets"))
+    (setq-default yas-snippet-dirs '(usr-yasnippet-snippets-dir))
     (define-key yas-minor-mode-map (kbd "<tab>") nil)
     (define-key yas-minor-mode-map (kbd "TAB") nil)
     (define-key yas-minor-mode-map (kbd "s-e") 'yas-expand)

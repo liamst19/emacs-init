@@ -32,13 +32,13 @@
 ;; The Tern project is a JavaScript analyzer that can be used to
 ;; improve the JavaScript integration with editors like Emacs.
 
-(use-package company-tern
-  :ensure t
-  :init
-  (progn
-    (add-to-list 'company-backends 'company-tern))
-;;    (add-hook 'js2-mode-hook (lambda () (tern-mode t))))
-  :hook
-  (js2-mode . (lambda() (tern-mode t))))
+;; (use-package company-tern
+;; :ensure t
+;; :init
+;; (progn
+;; (add-to-list 'company-backends 'company-tern))
+;; ;;    (add-hook 'js2-mode-hook (lambda () (tern-mode t))))
+;; :hook
+;; (js2-mode . (lambda() (tern-mode t))))
 
 (provide 'init-company)

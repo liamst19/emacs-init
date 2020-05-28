@@ -42,12 +42,12 @@
   (package-install 'use-package))
 
 ;; Periodically check for packages updates
-(use-package auto-package-update
-  :ensure t
-  :config
-  (setq auto-package-update-delete-old-versions t
-        auto-package-update-interval 7) ;every 7 days
-  (auto-package-update-maybe))
+;; (use-package auto-package-update
+;;  :ensure t
+;;  :config
+;;  (setq auto-package-update-delete-old-versions t
+;;        auto-package-update-interval 7) ;every 7 days
+;;  (auto-package-update-maybe))
 
 ;;------------------------------------------------------------
 ;;------------------------------------------------------------
@@ -99,6 +99,7 @@
 (require 'init-vue)
 (require 'init-web)  ; html, css
 (require 'init-emmet)
+(require 'init-typescript) ; typescript
 (require 'init-tide) ; typescript
 (require 'init-cc)
 (require 'init-cmake)

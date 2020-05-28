@@ -137,8 +137,8 @@
     (org-verbatim              ((t (:inherit (shadow fixed-pitch)))))
     (org-code                  ((t (:inherit (shadow fixed-pitch)))))
     (org-indent                ((t (:inherit (org-hide fixed-pitch)))))
-    (org-level-1               ((t (:family "iA Writer Quattro V-b-26"
-                                            :foreground "#99aabb"))))
+    (org-level-1               ((t (:family "iA Writer Quattro V-b-23"
+                                            :foreground "#8899bb"))))
     (org-level-2               ((t (:foreground "#99cccc"))))
     (org-level-3               ((t (:foreground "#bbbbaa"))))
     (org-list-dt               ((t (:foreground "#aa9988"))))

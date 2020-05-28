@@ -14,13 +14,24 @@
 (setq visible-bell t)
 ;;)
 
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+
 ;; Scratch
 ;; (setq initial-scratch-message nil)   ; remove message from scratch
 ;; (setq initial-major-mode 'text-mode) ; set it to text-mode
 
-(setq-default make-backup-files nil)
-(setq auto-save-default nil)
-;;(setq delete-auto-save-files t)
+;;Auto-Save
+;; https://www.emacswiki.org/emacs/AutoSave
+(setq backup-directory-alist
+      `(("." . ,(concat usr-emacs-directory "backups"))))
+;; (setq-default make-backup-files nil)
+;; (setq auto-save-default nil)
+;; (setq delete-auto-save-files t)
+
+;; Disable Lock Files - crashes cypress testing
+(setq create-lockfiles nil)
 
 ;; Do not open file or user dialog
 (setq use-file-dialog nil)
@@ -44,6 +55,17 @@
 
 ;; Spell-check program
 (setq ispell-program-name "aspell")
+
+(global-linum-mode t)
+(line-number-mode t)
+(column-number-mode t)
+
+(blink-cursor-mode 0)
+(global-hl-line-mode t)
+(show-paren-mode t)
+;; Mouse Scrolling Behaviour
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
 
 ;; ------------------------------------------------------------
 ;; emacsclient (--daemon) does not seem to reproduce the initial
@@ -70,17 +92,6 @@
 	(tool-bar-mode -1)
 	(menu-bar-mode -1)
 	(toggle-scroll-bar -1)
-
-	(global-linum-mode t)
-	(line-number-mode t)
-	(column-number-mode t)
-
-	(blink-cursor-mode 0)
-	(global-hl-line-mode t)
-	(show-paren-mode t)
-	;; Mouse Scrolling Behaviour
-	(setq scroll-step 1)
-	(setq scroll-conservatively 10000)
 
 	;; ---------------------------------------------------
 	;; ---------------------------------------------------

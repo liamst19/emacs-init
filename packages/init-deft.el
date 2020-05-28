@@ -46,7 +46,7 @@
 
 (use-package zetteldeft
   :ensure t
-  :after deft
+; :after deft
   :bind(("\C-c d n" . zetteldeft-new-file)
         ("\C-c d o" . zetteldeft-find-file)
         ("\C-c d i" . zetteldeft-find-file-id-insert)

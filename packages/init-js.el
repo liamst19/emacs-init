@@ -49,4 +49,21 @@
   :init
   )
 
+;;------------------------------------------------------------
+;; [Package] json-mod
+;; https://github.com/joshwnj/json-mode
+;;
+;; Major mode for editing JSON files.
+;;
+;; Extends the builtin js-mode to add better syntax highlighting for
+;; JSON and some nice editing keybindings.
+;;
+;;------------------------------------------------------------
+
+(use-package json-mode
+  :ensure t
+  :mode
+  ("\\.json\\'")
+  )
+
 (provide 'init-js)
