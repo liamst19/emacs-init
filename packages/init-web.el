@@ -15,6 +15,7 @@
    "\\.html\\'"
    "\\.php\\'"
    "\\.vue\\'"
+   "\\.[jt]sx\\'"
    )
   :init
   (add-hook 'web-mode-hook 'electric-pair-mode)

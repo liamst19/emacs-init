@@ -32,7 +32,7 @@
         ("marmalade" . "https://marmalade-repo.org/packages/")
         ("org"       . "http://orgmode.org/elpa/")))
 
-(package-initialize) ;; obsolete from emacs 27
+;; (package-initialize) ;; obsolete from emacs 27
 
 ;; (setq url-http-attempt-keepalives nil)
 
@@ -96,11 +96,11 @@
 (require 'init-markdown)
 (require 'init-yaml)
 (require 'init-js)  ; javascript
-(require 'init-vue)
+;; (require 'init-vue)
 (require 'init-web)  ; html, css
-(require 'init-emmet)
+;; (require 'init-emmet)
 (require 'init-typescript) ; typescript
-(require 'init-tide) ; typescript
+;; (require 'init-tide) ; typescript
 (require 'init-cc)
 (require 'init-cmake)
 (require 'init-cmake-ide)

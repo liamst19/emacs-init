@@ -56,9 +56,12 @@
 ;; Spell-check program
 (setq ispell-program-name "aspell")
 
+;; Line Numbers
 (global-linum-mode t)
 (line-number-mode t)
 (column-number-mode t)
+
+(fringe-mode '(12 . 0))
 
 (blink-cursor-mode 0)
 (global-hl-line-mode t)

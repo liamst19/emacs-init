@@ -8,7 +8,7 @@
 
 (use-package typescript-mode
   :ensure t
-  :mode ("\\.tsx?\\'")
+  :mode ("\\.ts\\'")
   )
 
 (provide 'init-typescript)

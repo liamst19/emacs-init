@@ -47,3 +47,26 @@ There are some configurations that require directory locations for various purpo
   (setq diary-file (expand-file-name "diary"))
   (setq markdown-memo-file (expand-file-name "Memo/%s.md.txt")))
 #+END_SRC
+
+* Other notes
+** Building emacs (27.0) from source
+(from [[https://www.emacswiki.org/emacs/BuildingEmacs][EmacsWiki]])
+
+#+begin_src bash
+$ sudo apt-get install libc6-dev libjpeg62-dev libncurses5-dev libpng-dev libtiff4-dev libungif4-dev xaw3dg-dev zlib1g-dev libice-dev libsm-dev libx11-dev libxext-dev libxi-dev libxmu-dev libxmuu-dev libxpm-dev libxrandr-dev libxt-dev libxtrap-dev libxtst-dev libxv-dev x-dev xlibs-static-dev
+$ git clone -b emacs-27 git://git.sv.gnu.org/emacs.git
+$ cd ./emacs
+$ ./autogen.sh    # not needed when installing from tarball
+$ ./configure --with-x-toolkit=lucid --with-mailutils
+$ make
+$ sudo make install
+#+end_src
+
+The =--with-x-toolkit=lucid= option is added to get rid of a warning WSL had been showing when emacs server is started
+
+** installing some node.js libraries
+*** lsp-mode language servers
+[[https://emacs-lsp.github.io/lsp-mode/page/languages/][LSP Mode - LSP support for Emacs - Languages]]
+#+begin_src bash
+$ npm i -g vscode-json-languageserver javascript-typescript-langserver  vscode-html-languageserver-bin vls
+#+end_src

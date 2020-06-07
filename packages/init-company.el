@@ -29,6 +29,10 @@
        company-dabbrev
        company-elisp))))
 
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 ;; The Tern project is a JavaScript analyzer that can be used to
 ;; improve the JavaScript integration with editors like Emacs.
 

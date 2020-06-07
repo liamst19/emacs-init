@@ -1,3 +1,9 @@
+
+
+;; Use js-mode for js and jsx files
+;; (add-to-list 'auto-mode-alist '("\\.[jt]sx\\'" . js-jsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.[jt]s\\'" . js-mode))
+
 ;;------------------------------------------------------------
 ;; [Package] js2-mode
 ;; https://github.com/mooz/js2-mode/
@@ -5,31 +11,30 @@
 ;; Improved JavaScript editing mode for GNU Emacs
 ;;------------------------------------------------------------
 
-(use-package js2-mode
-  :ensure t
-  :mode
-  ("\\.js\\'")
-  :init
-  (setq js-basic-indent 2
-        js-indent-level 2)
-  (setq-default js2-basic-indent 2
-                js2-basic-offset 2
-                js2-auto-indent-p t
-                js2-cleanup-whitespace t
-                js2-enter-indents-newline t
-                js2-strict-missing-semi-warning nil
-                js2-indent-on-enter-key t
-                js2-global-externs
-                (list
-                 "window"      "module"        "require"
-                 "buster"      "sinon"         "assert"
-                 "refute"      "setTimeout"    "clearTimeout"
-                 "setInterval" "clearInterval" "location"
-                 "__dirname"    "console"      "JSON"
-                 "jQuery"       "$"))
-  :hook
-  (js2-mode . (lambda() (push '("function" . ?ƒ) prettify-symbols-alist)))
-  )
+;; (use-package js2-mode
+;;   :ensure t
+;;   :init
+;;   (setq js-basic-indent 2
+;;         js-indent-level 2)
+;;   (setq-default js2-basic-indent 2
+;;                 js2-basic-offset 2
+;;                 js2-auto-indent-p t
+;;                 js2-cleanup-whitespace t
+;;                 js2-enter-indents-newline t
+;;                 js2-strict-missing-semi-warning nil
+;;                 js2-indent-on-enter-key t
+;;                 js2-global-externs
+;;                 (list
+;;                  "window"      "module"        "require"
+;;                  "buster"      "sinon"         "assert"
+;;                  "refute"      "setTimeout"    "clearTimeout"
+;;                  "setInterval" "clearInterval" "location"
+;;                  "__dirname"    "console"      "JSON"
+;;                  "jQuery"       "$"))
+;;   :hook
+;;   (js-mode . js2-minor-mode)
+;;   ;; (js2-mode . (lambda() (push '("function" . ?ƒ) prettify-symbols-alist)))
+;;   )
 
 ;;------------------------------------------------------------
 ;; [Package] rjsx-mode
@@ -42,12 +47,12 @@
 ;;
 ;;------------------------------------------------------------
 
-(use-package rjsx-mode
-  :ensure t
-  :mode
-   ("\\.[jt]sx?\\'")
-  :init
-  )
+;; (use-package rjsx-mode
+;;   :ensure t
+;;   :mode
+;;    ("\\.jsx?\\'")
+;;   :init
+;;   )
 
 ;;------------------------------------------------------------
 ;; [Package] json-mod
@@ -60,10 +65,10 @@
 ;;
 ;;------------------------------------------------------------
 
-(use-package json-mode
-  :ensure t
-  :mode
-  ("\\.json\\'")
-  )
+;; (use-package json-mode
+;;   :ensure t
+;;   :mode
+;;   ("\\.json\\'")
+;;   )
 
 (provide 'init-js)
