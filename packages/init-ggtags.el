@@ -25,11 +25,12 @@
          ;; ("M-," . pop-tag-mark)
          ;; ("C-c <" . ggtags-prev-mark)
          ;; ("C-c >" . ggtags-next-mark))
-  :init
-  (add-hook 'c-mode-common-hook
-            #'(lambda ()
-                (when (derived-mode-p 'c-mode 'c++-mode
-                                      'java-mode asm-mode)
-                  (ggtags-mode 1)))))
+  :hook
+  (c-mode-common . (lambda ()
+                     (when (derived-mode-p
+                            'c-mode
+                            'c++-mode
+                            'java-mode asm-mode)
+                       (ggtags-mode 1)))))
 
 (provide 'init-ggtags)

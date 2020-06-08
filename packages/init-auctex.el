@@ -5,11 +5,11 @@
 (use-package auctex
   :defer t
   :ensure t
-  :init (progn
-          (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-          (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-          (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-          (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
+  :hook
+  (LaTeX-mode . visual-line-mode)
+  (LaTeX-mode . flyspell-mode)
+  (LaTeX-mode . LaTeX-math-mode)
+  (LaTeX-mode . turn-on-reftex)
   :config (progn
             (setq TeX-auto-save t)
             (setq TeX-parse-self t)

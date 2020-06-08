@@ -10,10 +10,12 @@
 
 (use-package company
   :ensure t
+  :hook
+  ;; Enable company mode in every programming mode
+  (prog-mode . company-mode)
   :config
   (progn
-    ;; Enable company mode in every programming mode
-    (add-hook 'prog-mode-hook 'company-mode)
+    (company-ctags-auto-setup)
     ;; Set my own default company backends
     (setq-default
      company-backends
@@ -28,6 +30,13 @@
        company-gtags
        company-dabbrev
        company-elisp))))
+
+(use-package company-ctags
+  :ensure t
+  :after (company)
+  :init
+  (setq company-ctags-extra-tags-files '("$HOME/TAGS" "/usr/include/TAGS"))
+  )
 
 (use-package company-box
   :ensure t

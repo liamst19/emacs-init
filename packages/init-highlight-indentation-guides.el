@@ -16,9 +16,8 @@
 (use-package highlight-indent-guides
   :ensure t
   :init
-  (setq highlight-indent-guides-method                     'column
-        highlight-indent-guides-character                  ?\|)
-  :config (progn
-            (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)))
+  (setq highlight-indent-guides-method    'column
+        highlight-indent-guides-character ?\|)
+  :hook (prog-mode . highlight-indent-guides-mode))
 
 (provide 'init-highlight-indentation-guides)

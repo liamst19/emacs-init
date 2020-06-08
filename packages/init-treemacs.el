@@ -17,7 +17,6 @@
   ;;   (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
   (progn
-    (add-hook 'treemacs-mode-hook (lambda () (linum-mode -1)))
     (setq treemacs-collapse-dirs                 (if (executable-find "python3") 3 0)
           treemacs-deferred-git-apply-delay      0.5
           treemacs-display-in-side-window        t
@@ -45,7 +44,7 @@
           treemacs-show-hidden-files             t
           treemacs-silent-filewatch              nil
           treemacs-silent-refresh                nil
-          treemacs-sorting                       'alphabetic-desc
+          treemacs-sorting                       'alphabetic-asc
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
@@ -55,7 +54,6 @@
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
     (treemacs-resize-icons 15)
-
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
@@ -65,6 +63,12 @@
        (treemacs-git-mode 'deferred))
       (`(t . _)
        (treemacs-git-mode 'simple))))
+  :hook
+  (treemacs-mode . (lambda ()
+                     (linum-mode -1)
+                     (setq line-spacing 4)
+                     (setq buffer-face-mode-face '(:height .90))
+                     (buffer-face-mode)))
   :bind
   (:map global-map
         ("M-0"       . treemacs-select-window)
@@ -73,12 +77,6 @@
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
-
-(add-hook 'treemacs-mode-hook
-          (lambda ()
-            (setq line-spacing 4)
-            (setq buffer-face-mode-face '(:height .90))
-            (buffer-face-mode)))
 
 (use-package treemacs-evil
   :after treemacs evil

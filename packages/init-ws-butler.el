@@ -12,8 +12,8 @@
 
 (use-package ws-butler
   :ensure t
-  :config
-  (progn
-    (add-hook 'prog-mode-hook #'ws-butler-mode)))
+  :hook
+  (prog-mode . ws-butler-mode)
+  )
 
 (provide 'init-ws-butler)

@@ -17,12 +17,10 @@
   :ensure t
    ;; :after (typescript-mode company flycheck)
   :mode ("\\.tsx?\\'")
-  :init
-  (progn
-    ;; (add-hook 'before-save-hook     'tide-format-before-save)
-    ;; (add-hook 'typescript-mode-hook #'my/activate-tide-mode)
-    ;; (add-hook 'web-mode-hook        #'my/activate-tide-mode)
-    )
+  :hook
+  ;; (before-save     . tide-format-before-save)
+  ;; (typescript-mode . my/activate-tide-mode)
+  ;; (web-mode        . my/activate-tide-mode)
   )
 
 (provide 'init-tide)

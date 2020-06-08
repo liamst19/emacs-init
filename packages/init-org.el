@@ -82,38 +82,39 @@
   ;; Refile - create new nodes
   (setq org-refile-allow-creating-parent-nodes 'confirm)
 
-  :config
-  (progn
-    (setq org-agenda-files                 (list org-todo-file
-                                                 org-default-notes-file
-                                                 org-devnotes-file
-                                                 org-diary-file)
-          org-agenda-include-diary         t
-          org-ellipsis                     "↴" ;; ▾↴
-          org-catch-invisible-edits        'show-and-error
-          org-hide-emphasis-markers        t
-          org-fontify-whole-heading-line   t
-          org-tags-column                  0
-          org-bullets-bullet-list          '("●" "◆" "▲" "■" "")
-          org-indent-mode                  t
-          org-adapt-indentation            t
-          line-move-visual                 t)
-    (add-hook 'org-mode-hook (lambda ()
-                               (linum-mode 0)
-                               (olivetti-mode 1)
-                               (flyspell-mode 0)
-                               (set-fringe-mode 0)
-                               (setq line-spacing 3)
-                               (setq global-hl-line-mode 0)
-                               (setq left-margin-width 5)
-                               (setq right-margin-width 5)
-                               (setq header-line-format "")
-                               ))
-    (add-hook 'org-mode-hook 'variable-pitch-mode)
-    (add-hook 'org-mode-hook 'visual-line-mode)
-    (add-hook 'org-mode-hook 'org-indent-mode)
-    (add-hook 'org-mode-hook 'prettify-symbols-mode))
-
+  :hook
+  (org-mode . variable-pitch-mode)
+  (org-mode . visual-line-mode)
+  (org-mode . org-indent-mode)
+  (org-mode . prettify-symbols-mode)
+  (org-mode . (lambda ()
+                (linum-mode 0)
+                (set-fringe-mode 0)
+                (olivetti-mode 1)
+                (flyspell-mode 0)
+                (setq line-spacing 3)
+                (setq global-hl-line-mode 0)
+                (setq left-margin-width 5)
+                (setq right-margin-width 5)
+                (setq header-line-format "")
+                ))
+  :config (progn
+            (setq org-agenda-files
+                  (list org-todo-file
+                        org-default-notes-file
+                        org-devnotes-file
+                        org-diary-file)
+                  org-agenda-include-diary         t
+                  org-ellipsis                     "↴" ;; ▾↴
+                  org-catch-invisible-edits        'show-and-error
+                  org-hide-emphasis-markers        t
+                  org-fontify-whole-heading-line   t
+                  org-tags-column                  0
+                  org-bullets-bullet-list          '("●" "◆" "▲" "■" "")
+                  org-indent-mode                  t
+                  org-adapt-indentation            t
+                  line-move-visual                 t)
+            )
   :custom-face
     (variable-pitch            ((t (:family "iA Writer Duo V-22"
                                             :foreground "#cdcdcd"))))

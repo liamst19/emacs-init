@@ -19,14 +19,11 @@
 (use-package tern
   :ensure t
   :commands (tern-mode)
-  :init
-  (add-hook 'js2-mode-hook 'tern-mode)
+  :hook
+  (js2-mode . tern-mode)
   :config
-  )
-
-(eval-after-load 'tern
-  '(progn
     (require 'tern-auto-complete)
-    (tern-ac-setup)))
+    (tern-ac-setup)
+  )
 
 (provide 'init-tern)

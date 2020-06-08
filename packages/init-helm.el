@@ -66,6 +66,19 @@
       ("M-,"      . helm-gtags-pop-stack)
       ("C-c <"    . helm-gtags-previous-history)
       ("C-c >"    . helm-gtags-next-history))
+  :hook
+    ;; Enable helm-gtags-mode in Dired so you can jump to any tag
+    ;; when navigate project tree with Dired
+    (dired-mode . helm-gtags-mode)
+
+    ;; Enable helm-gtags-mode in Eshell for the same reason as above
+    (eshell-mode . helm-gtags-mode)
+
+    ;; Enable helm-gtags-mode in languages that GNU Global supports
+    (c-mode     . helm-gtags-mode)
+    (c++-mode   . helm-gtags-mode)
+    (java-mode  . helm-gtags-mode)
+    (asm-mode   . helm-gtags-mode))
   :init
   (progn
     (setq helm-gtags-ignore-case t
@@ -73,19 +86,6 @@
           helm-gtags-use-input-at-cursor t
           helm-gtags-pulse-at-cursor t
           helm-gtags-prefix-key "\C-cg"
-          helm-gtags-suggested-key-mapping t)
-
-    ;; Enable helm-gtags-mode in Dired so you can jump to any tag
-    ;; when navigate project tree with Dired
-    (add-hook 'dired-mode-hook  'helm-gtags-mode)
-
-    ;; Enable helm-gtags-mode in Eshell for the same reason as above
-    (add-hook 'eshell-mode-hook 'helm-gtags-mode)
-
-    ;; Enable helm-gtags-mode in languages that GNU Global supports
-    (add-hook 'c-mode-hook      'helm-gtags-mode)
-    (add-hook 'c++-mode-hook    'helm-gtags-mode)
-    (add-hook 'java-mode-hook   'helm-gtags-mode)
-    (add-hook 'asm-mode-hook    'helm-gtags-mode)))
+          helm-gtags-suggested-key-mapping t))
 
 (provide 'init-helm)
