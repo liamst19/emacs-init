@@ -13,6 +13,7 @@
   (setq c-basic-offset 4)
   (c-set-offset 'member-init-intro '+)
   (c-set-offset 'arglist-intro '++))
+
 (add-hook 'c-mode-common-hook 'my-arg-list-indentation)
 
 (provide 'init-cc)

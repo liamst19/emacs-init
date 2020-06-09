@@ -53,13 +53,13 @@
 ;;------------------------------------------------------------
 
 (require 'init-japanese-mozc) ;; Japanese input
+(require 'init-color-theme)
 
 (require 'init-calendar)
 (require 'init-org)
 (require 'init-deft)
 (require 'init-f) ;; for working with files and directories
 
-(require 'init-color-theme)
 ;; (require 'init-moody) ; moody mode-line theme
 (require 'init-adaptive-wrap)
 (require 'init-minions) ; minions mode-line theme
@@ -79,7 +79,7 @@
 ;; (require 'init-tern)
 (require 'init-helm)
 (require 'init-company)
-(require 'init-irony)
+;; (require 'init-irony)
 (require 'init-lsp)
 
 ;; (require 'init-ivy)
@@ -90,16 +90,16 @@
 
 (require 'init-yasnippet)
 (require 'init-ggtags)
-(require 'init-dtrt-indent)
+;; (require 'init-dtrt-indent)
 (require 'init-ws-butler)
 
 (require 'init-markdown)
 (require 'init-yaml)
-(require 'init-js)  ; javascript
+;; (require 'init-js)  ; javascript
 ;; (require 'init-vue)
 (require 'init-web)  ; html, css
 ;; (require 'init-emmet)
-(require 'init-typescript) ; typescript
+;; (require 'init-typescript) ; typescript
 ;; (require 'init-tide) ; typescript
 (require 'init-cc)
 (require 'init-cmake)

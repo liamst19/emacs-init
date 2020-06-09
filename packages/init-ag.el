@@ -7,6 +7,6 @@
 
 (use-package ag
   :ensure t
-:commands (ag ag-regexp ag-project))
+  :commands (ag ag-regexp ag-project))
 
 (provide 'init-ag)

@@ -9,7 +9,8 @@
 ;;-----------------------------------------------------------
 
 (use-package adaptive-wrap
-  :ensure t)
+  :ensure t
+  )
 
 ;; Automatically activate adaptive-wrap along with visual-line-mode
 (when (fboundp 'adaptive-wrap-prefix-mode)

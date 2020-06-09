@@ -134,6 +134,9 @@
     (org-property-value        ((t (:inherit fixed-pitch))))
     (org-special-keyword       ((t (:inherit
                                     (font-lock-comment-face fixed-pitch)))))
+    (org-todo                  ((t (:inherit (shadow fixed-pitch)))))
+    (org-checkbox              ((t (:foreground "#ffa500" :inherit fixed-pitch))))
+    (org-checkbox-done-text    ((t (:foreground "#71696A" :strike-through t))))
     (org-tag                   ((t (:inherit (shadow fixed-pitch)))))
     (org-verbatim              ((t (:inherit (shadow fixed-pitch)))))
     (org-code                  ((t (:inherit (shadow fixed-pitch)))))

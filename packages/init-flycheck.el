@@ -29,7 +29,6 @@
   :ensure t
   :init
   (global-flycheck-mode)
- ;; (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
   :hook
   (flycheck-mode . my/use-eslint-from-node-modules)
   :config

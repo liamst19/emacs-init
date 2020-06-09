@@ -21,7 +21,7 @@
     (define-key yas-minor-mode-map (kbd "<tab>") nil)
     (define-key yas-minor-mode-map (kbd "TAB") nil)
     (define-key yas-minor-mode-map (kbd "s-e") 'yas-expand)
-(yas-global-mode t)))
+    (yas-global-mode t)))
 
 (use-package yasnippet-snippets
   :ensure t)

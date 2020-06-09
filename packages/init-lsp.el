@@ -35,7 +35,6 @@
   :commands lsp
   :init
   :config
-  (progn
 ;; enable log only for debug
   (setq lsp-log-io nil)
   ;; use `evil-matchit' instead
@@ -67,7 +66,7 @@
                 lsp-on-touch-time) 30) ;; 30 seconds
       (setq lsp-on-touch-time (float-time (current-time)))
       ad-do-it))
-    ))
+    )
 
 (defun my-connect-lsp (&optional no-reconnect)
   "Connect lsp server.  If NO-RECONNECT is t, don't shutdown existing lsp connection."

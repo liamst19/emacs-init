@@ -15,7 +15,7 @@
   (prog-mode . company-mode)
   :config
   (progn
-    (company-ctags-auto-setup)
+    ;; (company-ctags-auto-setup)
     ;; Set my own default company backends
     (setq-default
      company-backends

@@ -10,12 +10,13 @@
 
 (use-package irony
   :ensure t
+  :hook
+    (c++-mode   . irony-mode)
+    (c-mode     . irony-mode)
+    (objc-mode  . irony-mode)
+    (irony-mode . irony-cdb-autosetup-compile-options)
   :config
   (progn
-    (add-hook 'c++-mode-hook   'irony-mode)
-    (add-hook 'c-mode-hook     'irony-mode)
-    (add-hook 'objc-mode-hook  'irony-mode)
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
     ;; Windows performance tweaks
     (when (boundp 'w32-pipe-read-delay)
       (setq w32-pipe-read-delay 0))
@@ -32,13 +33,17 @@
 (use-package company-irony-c-headers
   :ensure t
   :config
-  (push 'company-irony-c-headers company-backends))
-;;  :hook (irony-mode . (lambda () (add-to-list (make-local-variable 'company-backends) '(company-irony-c-headers)))))
+  (push 'company-irony-c-headers company-backends)
+  ;; :hook
+  ;; (irony-mode . (lambda ()
+  ;;                 (add-to-list
+  ;;                  (make-local-variable 'company-backends)
+  ;;                  '(company-irony-c-headers))))
+  )
 
 (use-package flycheck-irony
   :ensure t
-  :config
-  (progn
-    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+  :hook
+    (flycheck-mode . flycheck-irony-setup))
 
 (provide 'init-irony)
